@@ -15,20 +15,24 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
 
-        // Permitir localhost (desarrollo)
+        // ⭐ PERMITIR FRONTEND LOCAL Y VERCE
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
                 "http://localhost:3000",
-                "*"
+                "https://frontend-onpe.vercel.app"   // ⭐ NECESARIO
         ));
 
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        // ⭐ MÉTODOS PERMITIDOS
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
+
+        // ⭐ HEADERS PERMITIDOS
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(false);
+
+        // ⭐ OBLIGATORIO si usas Authorization Bearer
+        config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
-
         return new CorsFilter(source);
     }
 }
