@@ -126,9 +126,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/public/**")
                     .hasAnyAuthority("ROLE_GENERAL", "ROLE_CANDIDATOS", "ROLE_VOTACIONES")
 
-                // ============================
-                // PÚBLICAS
-                // ============================
+                
                 .requestMatchers(HttpMethod.GET, "/api/dni/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/categories").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth").permitAll()
