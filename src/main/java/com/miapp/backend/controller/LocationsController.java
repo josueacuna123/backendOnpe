@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/locations")
+// 🛠️ MODIFICACIÓN: Se añade /v1 para que la ruta coincida con el frontend
+@RequestMapping("/api/v1/locations")
 @RequiredArgsConstructor
 public class LocationsController {
 
